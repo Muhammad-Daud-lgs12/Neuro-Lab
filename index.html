@@ -1141,6 +1141,13 @@
         body {
           padding-bottom: 92px;
         }
+        main,
+        main > section,
+        .hero,
+        .hero > div {
+          min-width: 0;
+          max-width: 100%;
+        }
         header {
           top: 8px;
           padding: 0 10px;
@@ -1189,14 +1196,18 @@
         }
         .hero p {
           font-size: 16px;
+          overflow-wrap: anywhere;
         }
         .sbox {
+          width: 100%;
+          min-width: 0;
           padding: 5px 5px 5px 16px;
         }
         .sbox input {
           font-size: 16px;
         }
         .sbox .btn {
+          flex: none;
           padding: 10px 16px;
         }
         .chips {
@@ -1215,11 +1226,15 @@
           padding: 9px 15px;
         }
         .tiles {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 8px;
+          width: 100%;
         }
         .tile {
-          flex: 1 1 42%;
+          flex: none;
           min-width: 0;
+          width: 100%;
           padding: 10px 12px;
         }
         .tile b {
@@ -1286,6 +1301,26 @@
         }
         .abs {
           font-size: 17px;
+        }
+      }
+      @media (max-width: 760px) and (orientation: landscape) {
+        body {
+          padding-bottom: 72px;
+        }
+        .hero {
+          margin-top: 10px;
+          padding: 22px 20px;
+        }
+        .hero h1 {
+          font-size: clamp(28px, 5vw, 38px);
+        }
+        nav {
+          left: 8px;
+          right: 8px;
+          bottom: calc(6px + env(safe-area-inset-bottom));
+        }
+        .tab {
+          padding: 8px 4px;
         }
       }
       @media (max-width: 640px) {
